@@ -23,7 +23,7 @@ int main(){
 
 	printf("Connected to the broker \n");
 
-	//client, pointer to message ID, topic, payload in bites, payload, service quality, retrain
+	//client, pointer to message ID, topic, payload in bytes, payload, service quality, retrain
 	mosquitto_publish(mosq, NULL, "test", 19, "Test Test Beep Boop", 0, false);
 
 	mosquitto_disconnect(mosq);
