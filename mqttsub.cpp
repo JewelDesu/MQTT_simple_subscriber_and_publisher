@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <unistd.h>
+#include <limits>
 
 void connected(struct mosquitto* mosq, void* obj, int return_value);
 void message(struct mosquitto* mosq, void* obj, const struct mosquitto_message* message);
@@ -43,8 +44,8 @@ int main(){
 	
 	printf("Loop has started, Press Enter to quit \n");
 	
-	sleep(5);
-	getchar();
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	std::cin.get();
 	mosquitto_loop_stop(mosq, true);
 
 	mosquitto_disconnect(mosq);
